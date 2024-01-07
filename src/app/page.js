@@ -1,12 +1,13 @@
-import { AddTodo, Menu, Todo } from "@/components";
+import { Menu, Todo, TodoView } from "@/components";
 import React from "react";
 
 const page = () => {
+  const tasks = [];
   return (
     <div className="w-full flex justify-between p-5 fixed">
       <Menu />
-      <Todo />
-      <AddTodo />
+      <Todo tasks={tasks} />
+      <TodoView />
     </div>
   );
 };
