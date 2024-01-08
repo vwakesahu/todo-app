@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   margin: 0;
   padding: 0;
@@ -20,5 +19,5 @@ html,
 body {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background-color: #F5F7FA
+  background-color: #f5f7fa;
 }
