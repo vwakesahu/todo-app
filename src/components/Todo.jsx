@@ -1,8 +1,11 @@
 "use client";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { IoAddOutline } from "react-icons/io5";
-import { AddTodo, TaskList } from ".";
+import { AddTodo } from ".";
 import { useStateValue } from "@/context/StateProvider";
+
+const TaskList = dynamic(() => import("./TaskList"), { ssr: false });
 const Todo = () => {
   const [isNewTask, setIsNewTask] = useState(false);
   const [{ tasks }, dispatch] = useStateValue();
@@ -43,7 +46,7 @@ const Todo = () => {
         )}
         <div className="mt-2">
           {/* Listing out tasks */}
-          <TaskList tasks={tasks} />
+          <TaskList />
         </div>
       </div>
     </div>

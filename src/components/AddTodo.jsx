@@ -20,10 +20,20 @@ const AddTodo = () => {
       title: title,
     };
 
-    dispatch({
-      type: actionType.SET_TASKS,
-      tasks: [...currentTasks, todo],
-    });
+    if (currentTasks === null) {
+      dispatch({
+        type: actionType.SET_TASKS,
+        tasks: [todo],
+      });
+      localStorage.setItem("tasks", JSON.stringify([todo]));
+    } else {
+      const updatedTasks = [...currentTasks, todo];
+      dispatch({
+        type: actionType.SET_TASKS,
+        tasks: updatedTasks,
+      });
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    }
 
     setTitle("");
     setDate("");
