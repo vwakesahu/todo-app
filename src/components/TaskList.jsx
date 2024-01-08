@@ -1,10 +1,11 @@
 import { useStateValue } from "@/context/StateProvider";
+import { actionType } from "@/context/reducer";
 import React, { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
 const TaskList = () => {
   const [isChecked, setIsChecked] = useState([]);
-  const [{ tasks }, dispatch] = useStateValue();
+  const [{ tasks, taskShow }, dispatch] = useStateValue();
 
   useEffect(() => {
     console.log(tasks);
@@ -20,6 +21,13 @@ const TaskList = () => {
         newChecked.splice(index, 1);
       }
       return newChecked;
+    });
+  };
+
+  const handleId = (taskId) => {
+    dispatch({
+      type: actionType.SET_SINGLE_TASK,
+      taskShow: taskId,
     });
   };
 
@@ -70,7 +78,10 @@ const TaskList = () => {
                 >
                   {item.title}
                 </p>
-                <div className="mr-3 border rounded-full flex items-center justify-center p-2 hover:bg-textColor hover:border-none hover:text-white cursor-pointer">
+                <div
+                  className="mr-3 border rounded-full flex items-center justify-center p-2 hover:bg-textColor hover:border-none hover:text-white cursor-pointer"
+                  onClick={() => handleId(item.id)}
+                >
                   <IoIosArrowForward />
                 </div>
               </div>
