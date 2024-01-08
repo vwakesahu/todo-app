@@ -1,13 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import { IoAddOutline } from "react-icons/io5";
-import { TaskList } from ".";
-const Todo = ({ tasks }) => {
+import { AddTodo, TaskList } from ".";
+import { useStateValue } from "@/context/StateProvider";
+const Todo = () => {
   const [isNewTask, setIsNewTask] = useState(false);
+  const [{ tasks }, dispatch] = useStateValue();
 
   const handleNewTask = () => {
-    setIsNewTask(!isNewTask);
+    // console.log("Before state update:", isNewTask);
+    setIsNewTask((prevIsNewTask) => !prevIsNewTask);
+    // console.log("After state update:", isNewTask);
   };
+
   return (
     <div className="h-screen w-full ">
       <div className="h-[93%] mr-4 p-4 ">
@@ -31,14 +36,15 @@ const Todo = ({ tasks }) => {
           <p className="text-sm">Add New Task</p>
         </div>
 
-        {isNewTask ? (
-          <div className="mt-2 px-2 py-3"> Add New Task</div>
-        ) : (
-          <div className="mt-2">
-            {/* Listing out tasks */}
-            <TaskList />
+        {isNewTask && (
+          <div className="mt-2 px-2 py-3">
+            <AddTodo />
           </div>
         )}
+        <div className="mt-2">
+          {/* Listing out tasks */}
+          <TaskList tasks={tasks} />
+        </div>
       </div>
     </div>
   );
