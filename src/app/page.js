@@ -10,7 +10,7 @@ const page = () => {
   return (
     <div>
       <StateProvider initialState={initialState} reducer={reducer}>
-        <ThemeProvider attribute="class" defaultTheme="system">
+        <ThemeProvider attribute="class" defaultTheme="light">
           <App />
         </ThemeProvider>
       </StateProvider>

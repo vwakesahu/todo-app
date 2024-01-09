@@ -22,7 +22,7 @@ const Menu = () => {
 
         {/* Search Field */}
         <div className="mt-6">
-          <Input type="text" placeholder="Search" />
+          {/* <Input type="text" placeholder="Search" /> */}
           {/* <input
             type="text"
             className="w-full bg-transparent border px-3 py-2 rounded-lg focus-within:outline-none focus:border-gray-300"
@@ -42,7 +42,10 @@ const Menu = () => {
             </Button>
           </div> */}
 
-          <div className="mt-3"><AddTodo /></div>
+          <div className="mt-3">
+            <p className="mb-2">Add Todo:</p>
+            <AddTodo />
+          </div>
         </div>
       </div>
     </div>
