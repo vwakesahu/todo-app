@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import Lottie from "lottie-react";
 const ExternalTodoList = ({ todos }) => {
   
   //   const handleClick = (id) => {
