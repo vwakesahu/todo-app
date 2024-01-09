@@ -2,6 +2,8 @@
 import { useStateValue } from "@/context/StateProvider";
 import { actionType } from "@/context/reducer";
 import React, { useState } from "react";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 const AddTodo = () => {
   const [title, setTitle] = useState("");
@@ -42,26 +44,19 @@ const AddTodo = () => {
   return (
     <div className="w-full">
       <div className="flex gap-2">
-        <input
-          className="bg-transparent border px-3 rounded-lg focus:border-gray-400 border-gray-300 focus:outline-none py-2 w-full placeholder:text-gray-300 focus:placeholder:text-gray-400 placeholder:font-light"
+        <Input
           placeholder="Title"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
         />
-        <input
-          className="bg-transparent border px-3 rounded-lg focus:border-gray-400 border-gray-300 focus:outline-none py-2 w-full placeholder:text-gray-300 focus:placeholder:text-gray-400 placeholder:font-light"
+        <Input
           placeholder="Date"
           onChange={(e) => setDate(e.target.value)}
           value={date}
         />
       </div>
 
-      <button
-        className="mt-3 w-full bg-yellowColor text-white hover:bg-yellow-400 py-2 rounded-b-lg "
-        onClick={handleAddTodo}
-      >
-        Add Todo
-      </button>
+      <Button onClick={handleAddTodo} className="mt-4">Add Todo</Button>
     </div>
   );
 };
