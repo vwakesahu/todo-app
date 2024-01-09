@@ -69,7 +69,17 @@ const TodoView = () => {
         <div>
           {taskShow === undefined ? (
             <div>
-              <p className="mb-16 mt-2">Hello, there I hope you doing well. This app is made by @vwakesahu.</p>
+              <p className="mb-16 mt-2">
+                Hello, there I hope you doing well. This app is made by{" "}
+                <a
+                  href="https://github.com/vwakesahu/todo-app"
+                  target="_blank"
+                  className="text-blue-500"
+                >
+                  @vwakesahu
+                </a>
+                . Give it a ⭐
+              </p>
               <Lottie animationData={Hello} />
             </div>
           ) : (
