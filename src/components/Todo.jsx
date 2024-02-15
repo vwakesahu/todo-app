@@ -24,9 +24,9 @@ const Todo = () => {
             <p>
               Remaining Tasks: <span className="text-red-600 font-bold">1</span>
             </p>
-            <Link href="/api-todo">
+            {/* <Link href="/api-todo">
               <Badge className={"mt-2 cursor-pointer"}>See Api Todo</Badge>
-            </Link>
+            </Link> */}
           </div>
         </div>
 
